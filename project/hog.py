@@ -247,7 +247,7 @@ def announce_lead_changes(score0, score1, last_leader=None):
     "*** YOUR CODE HERE ***"
     current_leader = last_leader
     if score0 == score1:
-        return last_leader, None
+        return None, None
     if score0 > score1:
         current_leader = 0
     else:
