@@ -80,23 +80,7 @@ def pascal(row, column):
     6
     """
     "*** YOUR CODE HERE ***"
-
-    def helper_make_row(n):
-        if len(n) <= 1:
-            return []
-
-        return [n[0] + n[1]] + helper_make_row(n[1:])
-
-    def make_row(n):
-        if len(n) == 0:
-            return [1]
-        if len(n) == 1:
-            return [1, 1]
-        return [1] + helper_make_row(n) + [1]
-
-    def helper(row, column, seq):
-        if row < 0:
-            return seq[column] if column < len(seq) else 0
-        return helper(row - 1, column, make_row(seq))
-
-    return helper(row, column, [])
+    if column == 0 or column == row:
+        return 1
+    else:
+        return pascal(row - 1, column) + pascal(row - 1, column - 1)
